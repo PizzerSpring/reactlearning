@@ -1,25 +1,21 @@
-import React, { useState } from "react";
-import ClassCounter from "./components/ClassCounter";
+import React, { useRef, useState } from "react";
 import Postitem from "./components/Postitem";
-import Postlist from "./components/Postlist";
-import styles from "./styles/App.css";
+import "./styles/App.css";
+
 
 function App() {
 
   const [posts, setPosts] = useState([
-    {id: 1, title: 'Javascript', body: 'Description'},
-    {id: 2, title: 'Javascript 2', body: 'Description'},
-    {id: 3, title: 'Javascript 3', body: 'Description'}
+    {id: 1, title: 'Python', body: 'Description'},
+    {id: 2, title: 'Python', body: 'Description'},
+    {id: 3, title: 'Python', body: 'Description'}
   ]);
-  
+
   return (
     <div className="App">
-      <form>
-        <input type="text" placeholder="Название поста"/>
-        <input type="text" placeholder="Описание поста"/>
-        <button>Создать пост</button>
-      </form>
-      <Postlist posts={posts} title={'Список постов 1'}/>
+      {posts.map(post => 
+        <Postitem post={post}/>
+        )}
     </div>
   );
 }

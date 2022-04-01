@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 
-const Counter = function() {
+const Counter = () => {
+
     const [count, setCount] = useState(0);
-    function increment() {
-        setCount(count + 1);
-      }
-    
-      function decrement() {
-        setCount(count - 1);
-        
-      }
+    const [value, setValue] = useState('');
+  
+  
+    const increment = () => {
+      setCount(count + 1);
+    }
+
+
     return (
         <div>
-            <h1>{count}</h1>
-            <h2></h2>
-            <button onClick={increment}>Increment</button>
-            <button onClick={decrement} >Decrement</button> 
+            <div>{count}</div>
+      <input onChange={event => setValue(event.target.value)} type="text" placeholder="Введите текст" value={value}/>
+      <button onClick={increment}>+</button>
         </div>
-    )
+    );
 
 }
 
